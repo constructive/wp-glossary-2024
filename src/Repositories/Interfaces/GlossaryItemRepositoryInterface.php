@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Glossary\Repositories\Interfaces;
+namespace App\Repositories\Interfaces;
 
 use Illuminate\Support\Collection;
 

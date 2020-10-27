@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Glossary\Http;
+namespace App\Http;
 
-use App\Glossary\Repositories\GlossaryItemRepository;
+use App\Repositories\GlossaryItemRepository;
 
 class GlossaryTermsController
 {

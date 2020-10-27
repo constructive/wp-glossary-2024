@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Glossary\Repositories;
+namespace App\Repositories;
 
-use App\Glossary\Http\Resources\GlossaryItemResource;
-use App\Glossary\Repositories\Interfaces\GlossaryItemRepositoryInterface;
+use App\Http\Resources\GlossaryItemResource;
+use App\Repositories\Interfaces\GlossaryItemRepositoryInterface;
 use Illuminate\Support\Collection;
 use WP_Post;
 
