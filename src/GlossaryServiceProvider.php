@@ -1,5 +1,5 @@
 <?php
-namespace App;
+namespace Constructive\Glossary;
 
 use App\Http\GlossaryTermsController;
 use Illuminate\Support\ServiceProvider;
@@ -33,14 +33,20 @@ class GlossaryServiceProvider extends ServiceProvider
     private function registerAttributes()
     {
         register_extended_field_group([
-            'title'     => 'Glossary Item',
+            'title'     => 'Glossary Terms',
             'fields' => [
                 Textarea::make('Definition'),
                 Repeater::make('Aliases')
                     ->buttonLabel('Add Alias')
                     ->fields([
                         Text::make('Alias')
+                    ]),
+                Repeater::make('Related Terms')
+                    ->buttonLabel('Add Alias')
+                    ->fields([
+                        Text::make('Alias')
                     ])
+
             ],
             'location' => [
                 Location::if('post_type', 'glossary_item'),

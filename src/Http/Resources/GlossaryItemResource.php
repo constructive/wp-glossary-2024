@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Resources;
+namespace Constructive\Glossary\Http\Resources;
 
 use WP_Post;
 

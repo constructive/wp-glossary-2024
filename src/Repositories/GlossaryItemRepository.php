@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories;
+namespace Constructive\Glossary\Repositories;
 
 use App\Http\Resources\GlossaryItemResource;
 use App\Repositories\Interfaces\GlossaryItemRepositoryInterface;
