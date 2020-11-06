@@ -138,10 +138,11 @@ function scan(termTitles, THEME_GLOSSARY_TERMS) {
       value = value.replace(/\$/g, '\\$'); // not using greedy g, to select, so only to select first
 
       var regex = new RegExp(value, 'i');
-      console.log(disable_formatting);
       var klass_modifier = '';
       if (html.substring(0).search(regex) === 0) klass_modifier = 'inline-glossary-term--start-of-sentance';else if (html.substring(0).indexOf('•') === 0) klass_modifier = 'inline-glossary-term--start-of-sentance';else if (disable_formatting) klass_modifier = 'inline-glossary-term--start-of-sentance';
-      return html.replace(regex, "<span class=\"inline-glossary-term ".concat(klass_modifier, "\" data-glossary-term-id=\"").concat(id, "\"></span>"));
+      return html.replace(regex, function (match) {
+        return "<span class=\"inline-glossary-term ".concat(klass_modifier, "\" data-glossary-term-id=\"").concat(id, "\" data-glossary-match=\"").concat(match, "\"></span>");
+      });
     });
   }); // Add the definitions
 
@@ -154,7 +155,7 @@ function scan(termTitles, THEME_GLOSSARY_TERMS) {
         title = _THEME_GLOSSARY_TERMS6.title,
         definition = _THEME_GLOSSARY_TERMS6.definition;
 
-    $(el).append("<dfn class=\"wp-glossary-dfn relative\">".concat(title, "<div class=\"wp-glossary-tooltip\">\n                    <h4 class=\"wp-glossary-title\">").concat(title, "</h4>\n                    <div class=\"class=\"wp-glossary-definition\">").concat(definition, "</div>\n                </div>\n            </dfn>"));
+    $(el).append("<dfn class=\"wp-glossary-dfn relative\">".concat(el.dataset.glossaryMatch, "<div class=\"wp-glossary-tooltip\">\n                    <dl>\n                        <dt class=\"wp-glossary-title\">").concat(title, "</dt>\n                        <dd class=\"class=\"wp-glossary-definition\">").concat(definition, "</dd>\n                    </dl>\n                </div>\n            </dfn>"));
   });
 }
 

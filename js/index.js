@@ -32,9 +32,6 @@ function scan (termTitles, THEME_GLOSSARY_TERMS) {
 
                 // not using greedy g, to select, so only to select first
                 var regex = new RegExp(value, 'i')
-
-                console.log(disable_formatting);
-
                 let klass_modifier = '';
                 if (html.substring(0).search(regex) === 0)
                     klass_modifier = 'inline-glossary-term--start-of-sentance';
@@ -45,7 +42,9 @@ function scan (termTitles, THEME_GLOSSARY_TERMS) {
 
                 return html.replace(
                     regex,
-                    `<span class="inline-glossary-term ${klass_modifier}" data-glossary-term-id="${id}"></span>`
+                    function (match) {
+                        return `<span class="inline-glossary-term ${klass_modifier}" data-glossary-term-id="${id}" data-glossary-match="${match}"></span>`
+                    }
                 )
             })
     })
@@ -56,9 +55,11 @@ function scan (termTitles, THEME_GLOSSARY_TERMS) {
             term => term.id == el.dataset.glossaryTermId
         )
         $(el).append(
-            `<dfn class="wp-glossary-dfn relative">${title}<div class="wp-glossary-tooltip">
-                    <h4 class="wp-glossary-title">${title}</h4>
-                    <div class="class="wp-glossary-definition">${definition}</div>
+            `<dfn class="wp-glossary-dfn relative">${el.dataset.glossaryMatch}<div class="wp-glossary-tooltip">
+                    <dl>
+                        <dt class="wp-glossary-title">${title}</dt>
+                        <dd class="class="wp-glossary-definition">${definition}</dd>
+                    </dl>
                 </div>
             </dfn>`
         )
