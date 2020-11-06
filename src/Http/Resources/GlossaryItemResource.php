@@ -16,9 +16,9 @@ class GlossaryItemResource
             'id' => $this->post->ID,
             'title' => $this->post->post_title,
             'definition' => get_field('definition', $this->post->ID),
-            'aliases' => collect(get_field('aliases', $this->post->ID))->map(function (array $post) {
+            'aliases' => get_field('aliases', $this->post->ID) ? collect(get_field('aliases', $this->post->ID))->map(function (array $post) {
                 return $post['alias'];
-            })
+            }) : []
         ];
     }
 }
