@@ -1,0 +1,29 @@
+{
+  "name": "wp-glossary",
+  "version": "1.0.0",
+  "description": "WP Glossary is an interactive glossary for WordPress",
+  "main": "index.js",
+  "scripts": {
+    "development": "NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "npm run development -- --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/constructive/wp-glossary.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/constructive/wp-glossary/issues"
+  },
+  "homepage": "https://github.com/constructive/wp-glossary#readme",
+  "devDependencies": {
+    "laravel-mix": "^5.0.9",
+    "vue-template-compiler": "^2.6.12"
+  },
+  "dependencies": {
+    "jquery": "^3.5.1",
+    "superagent": "^6.1.0"
+  }
+}

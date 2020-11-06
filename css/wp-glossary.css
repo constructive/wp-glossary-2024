@@ -1,0 +1,27 @@
+.wp-glossary-dfn {
+    cursor: pointer;
+    position: relative;
+    font-style: normal;
+    background-color: #ffffe0;
+}
+
+.wp-glossary-tooltip {
+    display: none;
+    visibility: hidden;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #ffc;
+    padding: 1rem;
+    width: 280px;
+}
+
+.wp-glossary-dfn:hover .wp-glossary-tooltip {
+    display: block;
+    visibility: visible;
+}
+
+.wp-glossary-dfn .wp-glossary-title {
+    margin-top: 0;
+    margin-bottom: 0;
+}
