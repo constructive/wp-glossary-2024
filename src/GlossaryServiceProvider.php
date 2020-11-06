@@ -3,6 +3,7 @@ namespace Constructive\Glossary;
 
 use App\Http\GlossaryTermsController;
 use Illuminate\Support\ServiceProvider;
+use WordPlate\Acf\Fields\Relationship;
 use WordPlate\Acf\Fields\Repeater;
 use WordPlate\Acf\Fields\Text;
 use WordPlate\Acf\Fields\Textarea;
@@ -41,12 +42,10 @@ class GlossaryServiceProvider extends ServiceProvider
                     ->fields([
                         Text::make('Alias')
                     ]),
-                Repeater::make('Related Terms')
-                    ->buttonLabel('Add Alias')
-                    ->fields([
-                        Text::make('Alias')
-                    ])
-
+                Relationship::make('Related Terms')
+                        ->instructions('Commonly used to associate one term with another')
+                        ->postTypes(['glossary_item'])
+                        ->filters(['search'])
             ],
             'location' => [
                 Location::if('post_type', 'glossary_item'),
