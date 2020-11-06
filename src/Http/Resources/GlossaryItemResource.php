@@ -13,7 +13,8 @@ class GlossaryItemResource
     public function toArray()
     {
         return [
-            'term' => $this->post->post_title,
+            'id' => $this->post->ID,
+            'title' => $this->post->post_title,
             'definition' => get_field('definition', $this->post->ID),
             'aliases' => collect(get_field('aliases', $this->post->ID))->map(function (array $post) {
                 return $post['alias'];

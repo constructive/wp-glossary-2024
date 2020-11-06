@@ -2,8 +2,8 @@
 
 namespace Constructive\Glossary\Repositories;
 
-use App\Http\Resources\GlossaryItemResource;
-use App\Repositories\Interfaces\GlossaryItemRepositoryInterface;
+use Constructive\Glossary\Http\Resources\GlossaryItemResource;
+use Constructive\Glossary\Repositories\Interfaces\GlossaryItemRepositoryInterface;
 use Illuminate\Support\Collection;
 use WP_Post;
 

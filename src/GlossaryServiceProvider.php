@@ -1,7 +1,7 @@
 <?php
 namespace Constructive\Glossary;
 
-use App\Http\GlossaryTermsController;
+use Constructive\Glossary\Http\Controllers\GlossaryTermsController;
 use Illuminate\Support\ServiceProvider;
 use WordPlate\Acf\Fields\Relationship;
 use WordPlate\Acf\Fields\Repeater;
