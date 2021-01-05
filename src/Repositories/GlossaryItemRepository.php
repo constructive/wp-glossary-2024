@@ -13,7 +13,7 @@ class GlossaryItemRepository implements GlossaryItemRepositoryInterface
     {
         $items = get_posts([
             'post_type' => 'glossary_item',
-            'per_page' => -1
+            'posts_per_page' => -1
         ]);
         return collect($items)->map(function (WP_Post $post) {
             return (new GlossaryItemResource($post))->toArray();
